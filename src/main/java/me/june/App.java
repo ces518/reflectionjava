@@ -49,5 +49,12 @@ public class App {
 
         // 인터페이스 접근
         Arrays.stream(MyBook.class.getInterfaces()).forEach(System.out::println);
+
+        // ㅇㅐ노테이션 접근
+        // 기본적으로 주석과 동일한 취급을 하기 때문에
+        // 바이트코드 로드시 해당 애노테이션 정보는 빼고 읽어온다.
+        // getAnnotations() : 상위 클래스의 상속가능한 애노테이션정보까지 가져온다.
+        // getDeclaredAnnotations() : 현재 클래스의 애노테이션 정보만 가져온다.
+        Arrays.stream(MyBook.class.getAnnotations()).forEach(System.out::println);
     }
 }

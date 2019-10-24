@@ -6,6 +6,7 @@ package me.june;
  * Date: 21/10/2019
  * Time: 10:37 오후
  **/
+@MyAnnotation
 public class Book {
     public static String b = "BOOK";
 
