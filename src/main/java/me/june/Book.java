@@ -8,34 +8,22 @@ package me.june;
  **/
 @MyAnnotation
 public class Book {
-    public static String b = "BOOK";
+    public static String A = "A";
 
-    public static final String C = "BOOK";
-
-    private String a = "a";
-
-    public String d = "d";
-
-    protected String e = "e";
+    private String B = "B";
 
     public Book() {
     }
 
-    public Book(String a, String d, String e) {
-        this.a = a;
-        this.d = d;
-        this.e = e;
+    public Book(String b) {
+        B = b;
     }
 
-    private void f() {
-        System.out.println("f");
+    public void c() {
+        System.out.println("C");
     }
 
-    public void g() {
-        System.out.println("g");
-    }
-
-    public int h() {
-        return 100;
+    public int d(int left, int right) {
+        return left + right;
     }
 }
