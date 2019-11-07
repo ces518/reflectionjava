@@ -26,4 +26,8 @@ public class Book {
     public int d(int left, int right) {
         return left + right;
     }
+
+    public String getTitle() {
+        return "title";
+    }
 }
