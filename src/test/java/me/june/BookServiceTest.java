@@ -50,6 +50,21 @@ public class BookServiceTest {
 
     @Test
     public void di () {
+        // invocation handler 를 넘겨준것처럼 handler를 넘겨주어야 한다.
+        // 이전의 다이나믹 프록시와 마찬가지로 프록시 객체가 부가적인 일을 할 부분을 구현해준다.
+        MethodInterceptor handler = new MethodInterceptor() {
+            // 리얼 서브젝트 클래스
+            BookService bookService = new DefaultBookService();
 
+            @Override
+            public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+                System.out.println("aaaa");
+                Object invoke = method.invoke(bookService, args);
+                System.out.println("bbbb");
+                return invoke;
+            }
+        };
+        // Enhancer 가 CGlib의 핵심 클래스이다.
+        BookService bookService = (BookService) Enhancer.create(BookService.class, handler);
     }
 }
